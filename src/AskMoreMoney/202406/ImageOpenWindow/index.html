@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片开窗效果</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .avatar:after,
+      .avatar:before {
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transition: all 0.5s;
+      }
+      .avatar:before {
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .avatar::after {
+        background-image: inherit;
+        clip-path: circle(0% at 50% 50%);
+      }
+      .avatar:hover:after {
+        clip-path: circle(50% at 50% 50%);
+      }
+    </style>
+  </head>
+  <body class="h-screen grid place-items-center">
+    <div
+      class="avatar relative rounded-full w-[200px] h-[200px] bg-[url('https://picx.zhimg.com/v2-2f646b9f01338f7febc550df0f5ba05f_xl.jpg?source=12a79843')]"
+    ></div>
+  </body>
+</html>
