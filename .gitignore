@@ -1,0 +1,18 @@
+python/__pycache_*
+node_modules
+_book
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.local
+
+yarn.lock
+dist
+.temp
+.caches
+.DS_Store

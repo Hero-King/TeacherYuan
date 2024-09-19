@@ -1,0 +1,30 @@
+{
+  "name": "teacheryuan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --write \"src/**/*.{js,vue,scss,html}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hero-King/TeacherYuan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hero-King/TeacherYuan/issues"
+  },
+  "homepage": "https://github.com/Hero-King/TeacherYuan#readme",
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-typescript": "^7.24.7",
+    "@types/jest": "^29.5.13",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.2"
+  }
+}
