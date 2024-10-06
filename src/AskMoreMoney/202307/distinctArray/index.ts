@@ -1,4 +1,5 @@
 // 对象数组去重, 只要对象中所有属性相同, 则表示相同的对象
+import { isObject } from '@/utils/object/object';
 
 const array = [
   {
@@ -26,10 +27,6 @@ const array = [
     },
   },
 ];
-
-export function isObject(a: any) {
-  return typeof a === 'object' && a !== null;
-}
 
 export function equals(a: any, b: any) {
   if (!isObject(a) || !isObject(b)) {
@@ -64,5 +61,5 @@ export function distinctArray(arr = array) {
       }
     }
   }
-  return arr
+  return arr;
 }
