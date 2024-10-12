@@ -1,0 +1,64 @@
+<!--
+ * @Author: HeroKing-hack 838774057@qq.com
+ * @Date: 2024-10-11 22:48:23
+ * @LastEditors: HeroKing-hack 838774057@qq.com
+ * @LastEditTime: 2024-10-11 23:05:06
+ * @FilePath: /TeacherYuan/src/AskMoreMoney/202405/smoothScroll/index.html
+ * @Description: 平滑滚动
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>平滑滚动</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        height: 100vh;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+      }
+      .btn {
+        position: fixed;
+        bottom: 20px;
+      }
+      html {
+        /* css实现平滑滚动 可以作用在滚动的盒子中*/
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Page 1</li>
+      <li>Page 2</li>
+      <li>Page 3</li>
+      <li>Page 4</li>
+    </ul>
+    <button class="btn">返回顶部</button>
+
+    <script>
+      const btn = document.querySelector('.btn');
+      btn.onclick = function () {
+        window.scrollTo({
+          top: 0,
+          //   behavior: 'smooth',   // js实现
+        });
+      };
+    </script>
+  </body>
+</html>

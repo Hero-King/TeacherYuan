@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>弧形边框选项卡</title>
+    <style>
+      #root {
+        width: 100px;
+        height: 20px;
+        margin: 100px auto;
+        background-color: red;
+        border-radius: 5px 5px 0 0;
+        position: relative;
+        transform-origin: center bottom;
+        transform: perspective(30px) rotateX(20deg);
+      }
+      #root::before, #root::after {
+        content: '';    
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        bottom: 0;
+        /* 径向渐变 圆环外面设置成Tab背景色 */
+        background-image: radial-gradient(circle at 0 0 , transparent 10px, red 10px); 
+      }
+      #root::before {
+        left: -10px;
+      }
+      #root::after {
+        right: -10px;
+        background-image: radial-gradient(circle at 100% 0 , transparent 10px, red 10px);
+
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!--
+ * @Author: HeroKing-hack 838774057@qq.com
+ * @Date: 2024-10-07 15:28:24
+ * @LastEditors: HeroKing-hack 838774057@qq.com
+ * @LastEditTime: 2024-10-07 15:44:54
+ * @FilePath: /TeacherYuan/src/AskMoreMoney/202405/containingBlock/index.html
+ * @Description: 理解包含块(https://developer.mozilla.org/zh-CN/docs/Web/CSS/Containing_block#%E7%A4%BA%E4%BE%8B)
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: beige;
+      }
+
+      section {
+        transform: rotate(0deg);
+        width: 400px;
+        height: 160px;
+        background: lightgray;
+      }
+
+      p {
+        position: absolute;
+        left: 80px;
+        top: 30px;
+        width: 50%; /* == 200px */
+        height: 25%; /* == 40px */
+        margin: 5%; /* == 20px */
+        padding: 5%; /* == 20px */
+        background: cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <p>This is a paragraph!</p>
+    </section>
+  </body>
+</html>
