@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>你不知道的Console</title>
+  </head>
+  <body>
+    <script>
+      // debug信息
+      console.debug('debug');
+
+      console.table([
+        {
+          name: 'HeroKing',
+          age: 18,
+        },
+        {
+          name: 'HeroKing-hack',
+          age: 19,
+        },
+      ]);
+
+      //   group
+      console.group('group');
+      console.log('group-log');
+      console.log('group-aaaa');
+      console.groupEnd();
+
+      // dir
+      console.dir(document.body);
+
+      //   count
+      for (let index = 0; index < 10; index++) {
+        console.count('loop count');
+      }
+      console.countReset('loop count');
+
+      function bb() {
+        console.trace('trace');
+      }
+      function aa(params) {
+        bb();
+      }
+      aa();
+    </script>
+  </body>
+</html>
