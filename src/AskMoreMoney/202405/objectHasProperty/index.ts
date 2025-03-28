@@ -13,29 +13,6 @@
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
-class Animal {
-  name: string;
-  constructor(theName: string) {
-    this.name = theName;
-  }
-  move(distanceInMeters: number = 0) {
-    console.log(`${this.name} moved ${distanceInMeters}m.`);
-  }
-}
-
-class Dog extends Animal {
-  legs: number;
-  watch() {
-    console.log('watching');
-  }
-  constructor(name: string, legs: number) {
-    super(name);
-    this.legs = legs;
-  }
-}
-
-const dog = new Dog('Dog', 4);
-// console.log(Object.keys(dog).length); // 2
 
 // 原始函数形式构造器 Object.keys不获取原型上属性
 function Test() {}
@@ -44,21 +21,25 @@ Test.prototype.aa = 'aa';
 // @ts-ignore
 const test = new Test();
 test.bb = 0;
-// console.log(Object.keys(test).length); // 1
+Object.defineProperty(test, 'cc', {
+  value: 'cc',
+  enumerable: false,
+});
 
 function getOwnProperty(obj: any) {
-  console.log('====使用forin循环====');
-
   for (const key in obj) {
-    console.log('for in 遍历出来的key', key);
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      console.log('对象自己的可枚举属性', key);
-    }
+    console.log('for in 遍历出来的key:', key);
   }
-
-  console.log('====object.keys(obj)====');
-  console.log(Object.keys(obj));
+  console.log('====object.keys(obj)====', Object.keys(obj));
+  console.log(
+    'Object.getOwnPropertyNames(obj):',
+    Object.getOwnPropertyNames(obj),
+  );
+  console.log('Reflect.ownKeys(obj)', Reflect.ownKeys(obj));
+  console.log(
+    "Object.prototype.hasOwnProperty.call(obj, 'cc')",
+    Object.prototype.hasOwnProperty.call(obj, 'cc'),
+  );
 }
 
-getOwnProperty(dog);
 getOwnProperty(test);

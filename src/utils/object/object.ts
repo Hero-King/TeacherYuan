@@ -96,3 +96,45 @@ export const deepCloneWidthDepth = <T>(
 
   return clonedObj as T;
 };
+
+export const deepCloneMy = (object: any) => {
+  const _clone = (obj: any, map = new Map()) => {
+    if (!isObject(obj)) {
+      return obj;
+    }
+    if (map.has(obj)) {
+      return map.get(obj);
+    }
+    if (obj instanceof Date) {
+      return new Date(obj);
+    }
+    if (obj instanceof RegExp) {
+      return new RegExp(obj);
+    }
+    if (obj instanceof Map) {
+      const cloned = new Map();
+      map.set(obj, cloned);
+      for (const [key, value] of obj) {
+        cloned.set(key, _clone(value, map));
+      }
+      return cloned;
+    }
+    if (obj instanceof Set) {
+      const cloned = new Set();
+      map.set(obj, cloned);
+      for (const value of obj) {
+        cloned.add(_clone(value, map));
+      }
+      return cloned;
+    }
+    const cloned = Array.isArray(obj)
+      ? []
+      : Object.create(Object.getPrototypeOf(obj));
+    map.set(obj, cloned);
+    Object.keys(obj).forEach((key) => {
+      cloned[key] = _clone(obj[key], map);
+    });
+    return cloned;
+  };
+  return _clone(object);
+};
